@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+    <style>
+        /* Basic CSS for testing */
+        .view {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin: 10px;
+        }
+        .view.active {
+            display: block;
+        }
+        .primary-cta {
+            background-color: #E8872A;
+            color: #FFFFFF;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .primary-cta:hover {
+            background-color: #D9741B;
+        }
+    </style>
+</head>
+<body>
+    <h1>Navigation Test</h1>
+    
+    <!-- Landing Page -->
+    <main id="landing-page" class="view active">
+        <h2>Landing Page</h2>
+        <p>This is the landing page</p>
+        <button class="primary-cta" id="hero-start-btn">Start Free Calculation</button>
+    </main>
+    
+    <!-- Wizard Page -->
+    <main id="wizard-page" class="view">
+        <h2>Wizard Page</h2>
+        <p>This is the wizard page</p>
+        <button class="primary-cta" id="back-to-home">Back to Home</button>
+    </main>
+
+    <script>
+        // Simple test script
+        console.log('Script starting...');
+        
+        // Get elements
+        const landingPage = document.getElementById('landing-page');
+        const wizardPage = document.getElementById('wizard-page');
+        const heroStartBtn = document.getElementById('hero-start-btn');
+        const backToHome = document.getElementById('back-to-home');
+        
+        console.log('Elements found:', {
+            landingPage: !!landingPage,
+            wizardPage: !!wizardPage,
+            heroStartBtn: !!heroStartBtn,
+            backToHome: !!backToHome
+        });
+
+        // View switching function
+        function showView(viewToShow) {
+            console.log('showView called with:', viewToShow?.id);
+            
+            if (!viewToShow) {
+                console.error('No view provided');
+                return;
+            }
+            
+            // Hide all views
+            document.querySelectorAll('.view').forEach(view => {
+                view.classList.remove('active');
+            });
+            
+            // Show the requested view
+            viewToShow.classList.add('active');
+            console.log('Switched to:', viewToShow.id);
+        }
+
+        // Event listeners
+        if (heroStartBtn) {
+            heroStartBtn.addEventListener('click', () => {
+                console.log('Hero Start button clicked');
+                showView(wizardPage);
+            });
+        } else {
+            console.error('Hero Start button not found');
+        }
+
+        if (backToHome) {
+            backToHome.addEventListener('click', () => {
+                console.log('Back to Home button clicked');
+                showView(landingPage);
+            });
+        } else {
+            console.error('Back to Home button not found');
+        }
+
+        // Check initial state
+        console.log('Initial active view:', document.querySelector('.view.active')?.id);
+    </script>
+</body>
+</html>

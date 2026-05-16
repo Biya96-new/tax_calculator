@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Tax Calculator FY 2025-26</title>
+    <meta name="description" content="Find out which tax regime saves you more money. A simple 5-minute tax calculator for salaried Indians based on FY 2025-26 rules.">
+    <meta name="keywords" content="tax calculator, income tax india, old vs new regime, fy 2025-26, salary tax calculator">
+    <meta property="og:title" content="India Tax Calculator FY 2025-26">
+    <meta property="og:description" content="A simple 5-minute calculator for salaried Indians to choose between Old and New Tax Regime. No jargon, just results.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Redesigned Landing Page -->
+        <main id="landing-page" class="view active">
+            <!-- Navbar -->
+            <nav class="navbar">
+                <div class="navbar-container">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-svg"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                        </div>
+                        TaxRegime
+                    </a>
+                    
+                    <ul class="nav-menu">
+                        <li><a href="#" class="nav-link" id="nav-how-it-works" onclick="event.preventDefault();document.getElementById('how-it-works-modal').classList.add('active');document.body.style.overflow='hidden'">How It Works</a></li>
+                        <li><a href="#" class="nav-link" id="nav-tax-regimes" onclick="event.preventDefault();document.getElementById('tax-regimes-modal').classList.add('active');document.body.style.overflow='hidden'">Tax Regimes <span class="chevron">▼</span></a></li>
+                        <li><a href="#" class="nav-link" id="nav-resources" onclick="event.preventDefault();document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('resources-page').classList.add('active')">Resources <span class="chevron">▼</span></a></li>
+                        <li><a href="#" class="nav-link" id="nav-about-us" onclick="event.preventDefault();document.getElementById('about-us-modal').classList.add('active');document.body.style.overflow='hidden'">About Us</a></li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <button class="theme-toggle" title="Toggle Theme" onclick="document.body.classList.toggle('light-mode');var m=document.querySelectorAll('.moon-icon');var s=document.querySelectorAll('.sun-icon');m.forEach(function(el){el.style.display=document.body.classList.contains('light-mode')?'block':'none'});s.forEach(function(el){el.style.display=document.body.classList.contains('light-mode')?'none':'block'})">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container hero-grid">
+                    <!-- Left Column: Content -->
+                    <div class="hero-content">
+                        <div class="badge">
+                            <span class="dot"></span>
+                            FY 2025-26 (AY 2026-27) UPDATED
+                        </div>
+                        <h1 class="hero-headline">
+                            Find the tax regime that saves you <br>
+                            <span class="gradient-text">more money</span>
+                        </h1>
+                        <p class="hero-subheadline">
+                            Answer 10 simple questions and get your personalized tax recommendation in 5 minutes.
+                        </p>
+                        
+                        <div class="feature-pills">
+                            <div class="feature-pill">
+                                <span class="check-icon">✓</span> 100% Free
+                            </div>
+                            <div class="feature-pill">
+                                <span class="check-icon">✓</span> No Signup
+                            </div>
+                            <div class="feature-pill">
+                                <span class="check-icon">✓</span> Instant Results
+                            </div>
+                            <div class="feature-pill">
+                                <span class="check-icon">✓</span> Zero Data Collection
+                            </div>
+                        </div>
+
+                        <button class="primary-cta" id="hero-start-btn" onclick="document.getElementById('landing-page').classList.remove('active');document.getElementById('wizard-page').classList.add('active');">
+                            Start Free Calculation <span style="font-size: 1.2rem;">→</span>
+                        </button>
+
+                        <div class="social-proof">
+                            <div class="avatar-group">
+                                <img src="https://i.pravatar.cc/100?u=1" alt="User" class="avatar">
+                                <img src="https://i.pravatar.cc/100?u=2" alt="User" class="avatar">
+                                <img src="https://i.pravatar.cc/100?u=3" alt="User" class="avatar">
+                                <img src="https://i.pravatar.cc/100?u=4" alt="User" class="avatar">
+                            </div>
+                            <p class="social-text">Trusted by <span>1,00,000+</span> taxpayers</p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Card UI -->
+                    <div class="hero-visual">
+                        <div class="savings-preview-card">
+                            <h2 class="card-title">Your Tax Savings Preview</h2>
+                            
+                            <div class="savings-highlight">
+                                <div>
+                                    <p class="highlight-label">You can save up to</p>
+                                    <p class="highlight-amount">₹78,540</p>
+                                    <p class="highlight-sub">by choosing the New Tax Regime</p>
+                                </div>
+                                <div class="circular-icon">
+                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l10-10"></path><path d="M7 7h10v10"></path></svg>
+                                </div>
+                            </div>
+
+                            <div class="comparison-box">
+                                <div class="comparison-top">
+                                    <div class="regime-side">
+                                        <p class="side-label">Old Tax Regime</p>
+                                        <p class="side-amount">₹12,45,780</p>
+                                        <p class="side-meta">Total Tax Liability</p>
+                                    </div>
+                                    
+                                    <div class="vs-circle">VS</div>
+                                    
+                                    <div class="regime-side" style="text-align: right;">
+                                        <p class="side-label">New Tax Regime</p>
+                                        <p class="side-amount green">₹11,67,240</p>
+                                        <p class="side-meta">Total Tax Liability</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="savings-row">
+                                    <span class="row-label">Potential Savings</span>
+                                    <span class="row-value">₹78,540</span>
+                                </div>
+                            </div>
+
+                            <div class="disclaimer-note">
+                                <span class="bulb-icon">💡</span>
+                                <p>This is just a preview. Get your detailed breakdown after answering a <strong>few simple questions.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Why Choose TaxRegime Section -->
+            <section class="why-choose">
+                <div class="container">
+                    <h2 class="section-title-center">Why choose <span class="gradient-text">TaxRegime</span>?</h2>
+                    
+                    <div class="feature-cards-grid">
+                        <div class="feature-card-premium">
+                            <div class="card-bg-number">01</div>
+                            <div class="icon-glow-circle green">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+                            </div>
+                            <h3>Personalized for You</h3>
+                            <p>Our smart algorithm analyzes your income, investments & deductions to find your best tax regime.</p>
+                        </div>
+
+                        <div class="feature-card-premium">
+                            <div class="card-bg-number">02</div>
+                            <div class="icon-glow-circle blue">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                            </div>
+                            <h3>Maximize Your Savings</h3>
+                            <p>We compare both old and new tax regimes to show you the option that puts more money in your pocket.</p>
+                        </div>
+
+                        <div class="feature-card-premium">
+                            <div class="card-bg-number">03</div>
+                            <div class="icon-glow-circle purple">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            </div>
+                            <h3>100% Secure & Private</h3>
+                            <p>Your data stays private. We don't store or share any of your personal information.</p>
+                        </div>
+
+                        <div class="feature-card-premium">
+                            <div class="card-bg-number">04</div>
+                            <div class="icon-glow-circle orange">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            </div>
+                            <h3>Expert Backed</h3>
+                            <p>Our calculations are based on the latest tax laws & rules for FY 2025-26 (AY 2026-27).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonial + Stats Section -->
+            <section class="testimonial-stats">
+                <div class="container stats-grid">
+                    <!-- Left: Testimonial -->
+                    <div class="testimonial-card-premium">
+                        <div class="quote-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="opacity: 0.3;"><path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 6.23858 12.2556 4 15.017 4H19.017C21.7784 4 24.017 6.23858 24.017 9V15C24.017 18.3137 21.3307 21 18.017 21H14.017ZM4.017 21L4.017 18C4.017 16.8954 4.91243 16 6.017 16H9.017C9.56928 16 10.017 15.5523 10.017 15V9C10.017 8.44772 9.56928 8 9.017 8H5.017C4.46472 8 4.017 8.44772 4.017 9V12C4.017 12.5523 3.56928 13 3.017 13H1.017C0.464722 13 0.017 12.5523 0.017 12V9C0.017 6.23858 2.25558 4 5.017 4H9.017C11.7784 4 14.017 6.23858 14.017 9V15C14.017 18.3137 11.3307 21 8.017 21H4.017Z"></path></svg>
+                        </div>
+                        <p class="testimonial-text">
+                            "TaxRegime helped me save over ₹1.2 lakh by choosing the right tax regime. Super easy and reliable!"
+                        </p>
+                        <div class="testimonial-user">
+                            <img src="https://i.pravatar.cc/100?u=rahul" alt="Rahul" class="user-avatar">
+                            <div>
+                                <p class="user-name">Rahul Sharma</p>
+                                <p class="user-role">Salaried Employee</p>
+                            </div>
+                        </div>
+                        <div class="pagination-dots">
+                            <span class="dot active"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Stats -->
+                    <div class="stats-card-premium">
+                        <h3 class="stats-title">Trusted by thousands of smart taxpayers</h3>
+                        <div class="stats-items-row">
+                            <div class="stat-item">
+                                <div class="icon-glow-circle small green">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                </div>
+                                <p class="stat-number">1,00,000+</p>
+                                <p class="stat-label">Calculations Done</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="icon-glow-circle small blue">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                                </div>
+                                <p class="stat-number">₹250 Cr+</p>
+                                <p class="stat-label">Total Tax Savings</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="icon-glow-circle small purple">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                </div>
+                                <p class="stat-number">4.9/5</p>
+                                <p class="stat-label">User Rating</p>
+                            </div>
+                            <div class="stat-item">
+                                <div class="icon-glow-circle small blue">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                </div>
+                                <p class="stat-number">100%</p>
+                                <p class="stat-label">Free to Use</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works-redesign">
+                <div class="container">
+                    <h2 class="section-title-center">How it works</h2>
+                    <div class="steps-horizontal-flow">
+                        <div class="step-card">
+                            <div class="step-number-glow">1</div>
+                            <h4>Answer 10 Simple Questions</h4>
+                            <p>Tell us about your income, investments & expenses.</p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-card">
+                            <div class="step-number-glow">2</div>
+                            <h4>We Do the Math</h4>
+                            <p>Our smart calculator analyzes both tax regimes for you.</p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-card">
+                            <div class="step-number-glow">3</div>
+                            <h4>Get Your Results</h4>
+                            <p>See your tax liability comparison and potential savings.</p>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step-card">
+                            <div class="step-number-glow">4</div>
+                            <h4>Choose & Save</h4>
+                            <p>Pick the regime that saves you more and file with confidence.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final CTA Section -->
+            <section class="final-cta">
+                <div class="container">
+                    <div class="cta-banner-card">
+                        <!-- Left Illustration Mockup -->
+                        <div class="cta-illustration left">
+                            <div class="mock-calculator">
+                                <div class="mock-screen">₹78,540</div>
+                                <div class="mock-keys">
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                    <span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div class="mock-chart">
+                                <div class="bar bar-1"></div>
+                                <div class="bar bar-2"></div>
+                                <div class="bar bar-3"></div>
+                            </div>
+                        </div>
+
+                        <!-- Center Content -->
+                        <div class="cta-content-center">
+                            <h2>Stop guessing. <span class="gradient-text">Start saving.</span></h2>
+                            <p>Find out which tax regime is better for you in just 5 minutes</p>
+                            
+                            <button class="primary-cta large-cta" id="final-start-btn" onclick="document.getElementById('landing-page').classList.remove('active');document.getElementById('wizard-page').classList.add('active');">
+                                Start Your Free Calculation <span style="font-size: 1.2rem;">→</span>
+                            </button>
+
+                            <div class="cta-check-group">
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--clr-green); margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg> No Signup</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--clr-green); margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg> No Charges</span>
+                                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="color: var(--clr-green); margin-right: 4px;"><polyline points="20 6 9 17 4 12"></polyline></svg> Instant Results</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Illustration Mockup -->
+                        <div class="cta-illustration right">
+                            <div class="piggy-bank">
+                                <div class="coin">₹</div>
+                                <div class="bank-body"></div>
+                                <div class="bank-nose"></div>
+                                <div class="bank-ear"></div>
+                                <div class="bank-foot"></div>
+                            </div>
+                            <div class="coin-stack">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+
+        <!-- Wizard View (Hidden by default) -->
+        <main id="wizard-page" class="view bg-alt" data-step="1">
+            <div class="container wizard-container">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-bar-bg">
+                        <div class="progress-bar-fill" id="progress-fill" style="width: 10%;"></div>
+                    </div>
+                    <div class="progress-text">Step <span id="current-step-display">1</span> of 10</div>
+                </div>
+
+                <div class="wizard-split-layout">
+                    <!-- Left Pane: Questions -->
+                    <div class="wizard-left-pane">
+                        <div id="steps-wrapper">
+                            <!-- Placeholder Steps -->
+                            <div class="wizard-step active" data-step="1">
+                                <h2 class="step-question">How much money do you receive in your bank account every month?</h2>
+                                <p class="step-sublabel">This is the amount after all deductions — PF, tax, professional tax. Check your bank statement if unsure.</p>
+                                <div class="input-group large-input">
+                                    <span class="currency-prefix">₹</span>
+                                    <input type="number" id="take-home-input" placeholder="e.g., 50000" min="5000" max="2000000" oninput="var tp=parseInt(this.value)||0;var pfC=document.getElementById('has-pf').checked;var pf=pfC?parseInt(document.getElementById('pf-amount').value)||0:0;var ptC=document.getElementById('has-pt').checked;var pt=ptC?parseInt(document.getElementById('pt-amount').value)||0:0;var gross=(tp+pf+pt)*12;var dedN=75000;var dedO=150000;var taxN=Math.max(0,gross-dedN);var taxO=Math.max(0,gross-dedO);var calcN=0,calcO=0;if(taxN>300000&&taxN<=600000)calcN=(taxN-300000)*0.05;else if(taxN>600000&&taxN<=900000)calcN=15000+(taxN-600000)*0.1;else if(taxN>900000&&taxN<=1200000)calcN=45000+(taxN-900000)*0.15;else if(taxN>1200000&&taxN<=1500000)calcN=90000+(taxN-1200000)*0.2;else if(taxN>1500000)calcN=150000+(taxN-1500000)*0.3;if(taxO>250000&&taxO<=500000)calcO=(taxO-250000)*0.05;else if(taxO>500000&&taxO<=750000)calcO=12500+(taxO-500000)*0.1;else if(taxO>750000&&taxO<=1000000)calcO=37500+(taxO-750000)*0.15;else if(taxO>1000000&&taxO<=1250000)calcO=75000+(taxO-1000000)*0.2;else if(taxO>1250000&&taxO<=1500000)calcO=125000+(taxO-1250000)*0.25;else if(taxO>1500000)calcO=187500+(taxO-1500000)*0.3;var rebateN=taxN<=1200000?Math.min(calcN,60000):0;var rebateO=taxO<=500000?Math.min(calcO,12500):0;var totalN=Math.max(0,calcN-rebateN);var totalO=Math.max(0,calcO-rebateO);var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};document.getElementById('preview-gross').textContent=f(gross)+' / year';document.getElementById('preview-new-tax').textContent=f(totalN);document.getElementById('preview-old-tax').textContent=f(totalO);document.querySelector('.preview-metrics').classList.remove('hidden');if(window.wizardState){window.wizardState.inputs.takeHomePay=tp}">
+                                    <span class="input-suffix">/ month</span>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="2">
+                                <h2 class="step-question">How old are you?</h2>
+                                <p class="step-sublabel">Your age affects the tax slabs under the Old Regime.</p>
+                                <div class="card-selector-group" id="age-group-selector">
+                                    <label class="selector-card active" onclick="document.querySelectorAll('#age-group-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active')">
+                                        <input type="radio" name="age_group" value="below60" checked>
+                                        <span class="card-title">I'm below 60</span>
+                                    </label>
+                                    <label class="selector-card" onclick="document.querySelectorAll('#age-group-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active')">
+                                        <input type="radio" name="age_group" value="senior60to79">
+                                        <span class="card-title">I'm between 60 and 79</span>
+                                    </label>
+                                    <label class="selector-card" onclick="document.querySelectorAll('#age-group-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active')">
+                                        <input type="radio" name="age_group" value="superSenior80plus">
+                                        <span class="card-title">I'm 80 or older</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="3">
+                                <h2 class="step-question">Does your company deduct anything from your salary?</h2>
+                                <p class="step-sublabel">Look at your payslip. Check which of these are deducted.</p>
+                                <div class="deduction-cards-group">
+                                    <div class="deduction-card">
+                                        <div class="deduction-card-header">
+                                            <div class="deduction-card-info">
+                                                <h3>PF / Provident Fund</h3>
+                                                <p>A savings deduction, usually 12% of basic</p>
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" id="has-pf" onchange="var d=document.getElementById('pf-input-group');d.style.display=this.checked?'block':'none';if(this.checked){var tp=parseInt(document.getElementById('take-home-input').value)||0;var pf=parseInt(document.getElementById('pf-amount').value)||0;var ptC=document.getElementById('has-pt').checked;var pt=ptC?parseInt(document.getElementById('pt-amount').value)||0:0;var gross=(tp+pf+pt)*12;var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};document.getElementById('preview-gross').textContent=f(gross)+' / year'}">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="deduction-card-body" id="pf-input-group" style="display: none;">
+                                            <label>How much is deducted for PF per month?</label>
+                                            <div class="input-group small-input">
+                                                <span class="currency-prefix">₹</span>
+                                                <input type="number" id="pf-amount" value="0" oninput="var tp=parseInt(document.getElementById('take-home-input').value)||0;var pfC=document.getElementById('has-pf').checked;var pf=pfC?parseInt(this.value)||0:0;var ptC=document.getElementById('has-pt').checked;var pt=ptC?parseInt(document.getElementById('pt-amount').value)||0:0;var gross=(tp+pf+pt)*12;var dedN=75000;var dedO=150000;var taxN=Math.max(0,gross-dedN);var taxO=Math.max(0,gross-dedO);var calcN=0,calcO=0;if(taxN>300000&&taxN<=600000)calcN=(taxN-300000)*0.05;else if(taxN>600000&&taxN<=900000)calcN=15000+(taxN-600000)*0.1;else if(taxN>900000&&taxN<=1200000)calcN=45000+(taxN-900000)*0.15;else if(taxN>1200000&&taxN<=1500000)calcN=90000+(taxN-1200000)*0.2;else if(taxN>1500000)calcN=150000+(taxN-1500000)*0.3;if(taxO>250000&&taxO<=500000)calcO=(taxO-250000)*0.05;else if(taxO>500000&&taxO<=750000)calcO=12500+(taxO-500000)*0.1;else if(taxO>750000&&taxO<=1000000)calcO=37500+(taxO-750000)*0.15;else if(taxO>1000000&&taxO<=1250000)calcO=75000+(taxO-1000000)*0.2;else if(taxO>1250000&&taxO<=1500000)calcO=125000+(taxO-1250000)*0.25;else if(taxO>1500000)calcO=187500+(taxO-1500000)*0.3;var rebateN=taxN<=1200000?Math.min(calcN,60000):0;var rebateO=taxO<=500000?Math.min(calcO,12500):0;var totalN=Math.max(0,calcN-rebateN);var totalO=Math.max(0,calcO-rebateO);var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};document.getElementById('preview-gross').textContent=f(gross)+' / year';document.getElementById('preview-new-tax').textContent=f(totalN);document.getElementById('preview-old-tax').textContent=f(totalO);document.querySelector('.preview-metrics').classList.remove('hidden')">
+                                                <span class="input-suffix">/ month</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="deduction-card">
+                                        <div class="deduction-card-header">
+                                            <div class="deduction-card-info">
+                                                <h3>Professional Tax</h3>
+                                                <p>A small state tax, usually ₹150–₹200/month</p>
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" id="has-pt" onchange="var d=document.getElementById('pt-input-group');d.style.display=this.checked?'block':'none';if(this.checked){var tp=parseInt(document.getElementById('take-home-input').value)||0;var pfC=document.getElementById('has-pf').checked;var pf=pfC?parseInt(document.getElementById('pf-amount').value)||0:0;var pt=parseInt(document.getElementById('pt-amount').value)||0;var gross=(tp+pf+pt)*12;var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};document.getElementById('preview-gross').textContent=f(gross)+' / year'}">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="deduction-card-body" id="pt-input-group" style="display: none;">
+                                            <label>How much professional tax per month?</label>
+                                            <div class="input-group small-input">
+                                                <span class="currency-prefix">₹</span>
+                                                <input type="number" id="pt-amount" value="0" oninput="var tp=parseInt(document.getElementById('take-home-input').value)||0;var pfC=document.getElementById('has-pf').checked;var pf=pfC?parseInt(document.getElementById('pf-amount').value)||0:0;var ptC=document.getElementById('has-pt').checked;var pt=ptC?parseInt(this.value)||0:0;var gross=(tp+pf+pt)*12;var dedN=75000;var dedO=150000;var taxN=Math.max(0,gross-dedN);var taxO=Math.max(0,gross-dedO);var calcN=0,calcO=0;if(taxN>300000&&taxN<=600000)calcN=(taxN-300000)*0.05;else if(taxN>600000&&taxN<=900000)calcN=15000+(taxN-600000)*0.1;else if(taxN>900000&&taxN<=1200000)calcN=45000+(taxN-900000)*0.15;else if(taxN>1200000&&taxN<=1500000)calcN=90000+(taxN-1200000)*0.2;else if(taxN>1500000)calcN=150000+(taxN-1500000)*0.3;if(taxO>250000&&taxO<=500000)calcO=(taxO-250000)*0.05;else if(taxO>500000&&taxO<=750000)calcO=12500+(taxO-500000)*0.1;else if(taxO>750000&&taxO<=1000000)calcO=37500+(taxO-750000)*0.15;else if(taxO>1000000&&taxO<=1250000)calcO=75000+(taxO-1000000)*0.2;else if(taxO>1250000&&taxO<=1500000)calcO=125000+(taxO-1250000)*0.25;else if(taxO>1500000)calcO=187500+(taxO-1500000)*0.3;var rebateN=taxN<=1200000?Math.min(calcN,60000):0;var rebateO=taxO<=500000?Math.min(calcO,12500):0;var totalN=Math.max(0,calcN-rebateN);var totalO=Math.max(0,calcO-rebateO);var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};document.getElementById('preview-gross').textContent=f(gross)+' / year';document.getElementById('preview-new-tax').textContent=f(totalN);document.getElementById('preview-old-tax').textContent=f(totalO);document.querySelector('.preview-metrics').classList.remove('hidden')">
+                                                <span class="input-suffix">/ month</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="4">
+                                <h2 class="step-question">Do you live in a rented house or apartment?</h2>
+                                <p class="step-sublabel">This affects your tax benefit on rent under the Old Regime.</p>
+                                <div class="card-selector-group" id="rent-selector">
+                                    <label class="selector-card active" onclick="document.querySelectorAll('#rent-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active');document.getElementById('rent-details').style.display='none'">
+                                        <input type="radio" name="pays_rent" value="no" checked>
+                                        <span class="card-title">No</span>
+                                    </label>
+                                    <label class="selector-card" onclick="document.querySelectorAll('#rent-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active');document.getElementById('rent-details').style.display='block'">
+                                        <input type="radio" name="pays_rent" value="yes">
+                                        <span class="card-title">Yes, I pay rent</span>
+                                    </label>
+                                </div>
+                                <div id="rent-details" class="conditional-section" style="display: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--clr-offwhite-dark);">
+                                    <div class="input-row" style="margin-bottom: 24px;">
+                                        <label>How much rent do you pay per month?</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" id="rent-amount" value="0" oninput="if(window.wizardState){window.wizardState.inputs.monthlyRent=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                            <span class="input-suffix">/ month</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-row" style="margin-bottom: 24px;">
+                                        <label>Which city do you live in?</label>
+                                        <div class="card-selector-group" style="grid-template-columns: 1fr 1fr; margin-top: 8px;">
+                                            <label class="selector-card active" style="padding: 16px;">
+                                                <input type="radio" name="is_metro" value="yes" checked>
+                                                <span class="card-title" style="font-size: 1rem;">Metro City</span>
+                                                <div style="font-size: 0.8rem; color: var(--clr-text-muted);">Delhi, Mumbai, Kolkata, Chennai</div>
+                                            </label>
+                                            <label class="selector-card" style="padding: 16px;">
+                                                <input type="radio" name="is_metro" value="no">
+                                                <span class="card-title" style="font-size: 1rem;">Other City</span>
+                                                <div style="font-size: 0.8rem; color: var(--clr-text-muted);">Bengaluru, Pune, Hyderabad, etc.</div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <label>How much HRA does your company pay you per month?</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" id="hra-received" value="0" oninput="if(window.wizardState){window.wizardState.inputs.hraReceived=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                            <span class="input-suffix">/ month</span>
+                                        </div>
+                                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin-top: 8px;">Check your payslip. If you don't know, leave as 0.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="5">
+                                <h2 class="step-question">Are you repaying a home loan?</h2>
+                                <p class="step-sublabel">Interest on home loans gives you a major tax benefit.</p>
+                                <div class="card-selector-group" id="home-loan-selector">
+                                    <label class="selector-card active" onclick="document.querySelectorAll('#home-loan-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active');document.getElementById('home-loan-details').style.display='none'">
+                                        <input type="radio" name="has_home_loan" value="no" checked>
+                                        <span class="card-title">No</span>
+                                    </label>
+                                    <label class="selector-card" onclick="document.querySelectorAll('#home-loan-selector .selector-card').forEach(c=>c.classList.remove('active'));this.classList.add('active');document.getElementById('home-loan-details').style.display='block'">
+                                        <input type="radio" name="has_home_loan" value="yes">
+                                        <span class="card-title">Yes</span>
+                                    </label>
+                                </div>
+                                <div id="home-loan-details" class="conditional-section" style="display: none; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--clr-offwhite-dark);">
+                                    <div class="input-row" style="margin-bottom: 24px;">
+                                        <label>How much interest do you pay on this loan per year?</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" id="hl-interest" value="0" oninput="if(window.wizardState){window.wizardState.inputs.hlInterest=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                            <span class="input-suffix">/ year</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <label>How much principal do you pay back per year?</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" id="hl-principal" value="0">
+                                            <span class="input-suffix">/ year</span>
+                                        </div>
+                                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin-top: 8px;">This counts towards your 80C limit in the Old Regime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="6">
+                                <h2 class="step-question">Do you or your family have health insurance?</h2>
+                                <p class="step-sublabel">Include only the premium you personally pay, not employer-provided insurance.</p>
+                                <div class="deduction-cards-group">
+                                    <div class="deduction-card">
+                                        <div class="deduction-card-header">
+                                            <div class="deduction-card-info">
+                                                <h3>Self & Family</h3>
+                                                <p>Insurance for you, your spouse, and children</p>
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" id="has-health-self" onchange="document.getElementById('health-self-group').style.display=this.checked?'block':'none'">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="deduction-card-body" id="health-self-group" style="display: none;">
+                                            <label>How much premium do you pay per year?</label>
+                                            <div class="input-group small-input">
+                                                <span class="currency-prefix">₹</span>
+                                                <input type="number" id="health-self-amount" value="0" oninput="if(window.wizardState){window.wizardState.inputs.healthSelfAmount=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                                <span class="input-suffix">/ year</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="deduction-card">
+                                        <div class="deduction-card-header">
+                                            <div class="deduction-card-info">
+                                                <h3>Parents</h3>
+                                                <p>Insurance for your parents</p>
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" id="has-health-parents" onchange="document.getElementById('health-parents-group').style.display=this.checked?'block':'none'">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="deduction-card-body" id="health-parents-group" style="display: none;">
+                                            <label>How much premium do you pay for them per year?</label>
+                                            <div class="input-group small-input" style="margin-bottom: 16px;">
+                                                <span class="currency-prefix">₹</span>
+                                                <input type="number" id="health-parents-amount" value="0" oninput="if(window.wizardState){window.wizardState.inputs.healthParentsAmount=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                                <span class="input-suffix">/ year</span>
+                                            </div>
+                                            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: normal;">
+                                                <input type="checkbox" id="parents-senior" style="width: 18px; height: 18px;">
+                                                Are any of your parents senior citizens (60+ years)?
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="7">
+                                <h2 class="step-question">Are you investing money to save tax?</h2>
+                                <p class="step-sublabel">These 80C investments reduce your taxable income under the Old Regime.</p>
+                                <div style="display: flex; flex-direction: column; gap: 16px;">
+                                    <div class="input-row">
+                                        <label>PPF (Public Provident Fund)</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" class="80c-input" id="invest-ppf" value="0" oninput="if(window.wizardState){window.wizardState.inputs.investPpf=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Life Insurance Premium (LIC, Term Life, etc.)</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" class="80c-input" id="invest-lic" value="0" oninput="if(window.wizardState){window.wizardState.inputs.investLic=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <label>ELSS Mutual Funds</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" class="80c-input" id="invest-elss" value="0" oninput="if(window.wizardState){window.wizardState.inputs.investElss=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <label>Other 80C (Tuition Fees, 5-Yr FD, NSC)</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" class="80c-input" id="invest-other80c" value="0">
+                                        </div>
+                                    </div>
+                                    <div style="background: rgba(232, 131, 42, 0.1); padding: 16px; border-radius: 8px; margin-top: 16px;">
+                                        <div style="display: flex; justify-content: space-between; font-weight: 700;">
+                                            <span>Your Total 80C:</span>
+                                            <span id="display-80c-total">₹0</span>
+                                        </div>
+                                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin-top: 4px;">Maximum benefit allowed is ₹1,50,000</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="8">
+                                <h2 class="step-question">Do you invest in NPS?</h2>
+                                <p class="step-sublabel">National Pension System offers tax benefits beyond 80C.</p>
+                                <div class="deduction-cards-group">
+                                    <div class="deduction-card">
+                                        <div class="deduction-card-header">
+                                            <div class="deduction-card-info">
+                                                <h3>My employer contributes</h3>
+                                                <p>Section 80CCD(2)</p>
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" id="has-nps-employer" onchange="document.getElementById('nps-employer-group').style.display=this.checked?'block':'none'">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="deduction-card-body" id="nps-employer-group" style="display: none;">
+                                            <label>How much does your employer contribute per year?</label>
+                                            <div class="input-group small-input">
+                                                <span class="currency-prefix">₹</span>
+                                                <input type="number" id="nps-employer-amount" value="0" oninput="if(window.wizardState){window.wizardState.inputs.npsEmployerAmount=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                                <span class="input-suffix">/ year</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="deduction-card">
+                                        <div class="deduction-card-header">
+                                            <div class="deduction-card-info">
+                                                <h3>I personally contribute</h3>
+                                                <p>Section 80CCD(1B)</p>
+                                            </div>
+                                            <label class="switch">
+                                                <input type="checkbox" id="has-nps-self" onchange="document.getElementById('nps-self-group').style.display=this.checked?'block':'none'">
+                                                <span class="slider"></span>
+                                            </label>
+                                        </div>
+                                        <div class="deduction-card-body" id="nps-self-group" style="display: none;">
+                                            <label>How much do you voluntarily invest per year?</label>
+                                            <div class="input-group small-input">
+                                                <span class="currency-prefix">₹</span>
+                                                <input type="number" id="nps-self-amount" value="0" oninput="if(window.wizardState){window.wizardState.inputs.npsSelfAmount=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                                <span class="input-suffix">/ year</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="9">
+                                <h2 class="step-question">Do you earn any money from savings or fixed deposits?</h2>
+                                <p class="step-sublabel">Even small amounts of interest are technically taxable.</p>
+                                <div style="display: flex; flex-direction: column; gap: 24px;">
+                                    <div class="input-row">
+                                        <label style="font-weight: 700; margin-bottom: 8px; display: block;">Savings Account Interest</label>
+                                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); margin-bottom: 8px;">Up to ₹10,000 is tax-free in the Old Regime.</p>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" id="income-savings" value="0" oninput="if(window.wizardState){window.wizardState.inputs.incomeSavings=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                            <span class="input-suffix">/ year</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-row">
+                                        <label style="font-weight: 700; margin-bottom: 8px; display: block;">Fixed Deposit (FD) Interest</label>
+                                        <div class="input-group small-input">
+                                            <span class="currency-prefix">₹</span>
+                                            <input type="number" id="income-fd" value="0" oninput="if(window.wizardState){window.wizardState.inputs.incomeFd=parseInt(this.value)||0;if(window.updateLivePreview)window.updateLivePreview()}">
+                                            <span class="input-suffix">/ year</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-step" data-step="10">
+                                <div style="text-align: center; padding: 40px 0;">
+                                    <h2 class="step-question">Ready to see your tax breakdown?</h2>
+                                    <p class="step-sublabel">We've calculated your exact tax under both regimes based on FY 2025-26 rules.</p>
+                                    <div style="font-size: 4rem; margin: 24px 0;">🎉</div>
+                                    <p>Click "Calculate Results" to view your personal tax verdict.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation -->
+                        <div class="wizard-navigation">
+                            <button class="nav-btn btn-secondary" id="prev-step-btn" onclick="var w=document.getElementById('wizard-page');var step=parseInt(w.getAttribute('data-step'))||1;if(step>1){var newStep=step-1;w.setAttribute('data-step',newStep);document.getElementById('progress-fill').style.width=(newStep/10*100)+'%';document.getElementById('current-step-display').textContent=newStep;document.querySelectorAll('.wizard-step').forEach(function(el){el.classList.remove('active')});document.querySelector('.wizard-step[data-step=&quot;'+newStep+'&quot;]').classList.add('active');}">&larr; Back</button>
+                            <button class="nav-btn btn-primary" id="next-step-btn" onclick="var w=document.getElementById('wizard-page');var step=parseInt(w.getAttribute('data-step'))||1;if(step<10){var newStep=step+1;w.setAttribute('data-step',newStep);document.getElementById('progress-fill').style.width=(newStep/10*100)+'%';document.getElementById('current-step-display').textContent=newStep;document.querySelectorAll('.wizard-step').forEach(function(el){el.classList.remove('active')});document.querySelector('.wizard-step[data-step=&quot;'+newStep+'&quot;]').classList.add('active')}else if(step===10){document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});document.getElementById('results-page').classList.add('active');var tp=parseInt(document.getElementById('take-home-input').value)||50000;var pfC=document.getElementById('has-pf').checked;var pf=pfC?parseInt(document.getElementById('pf-amount').value)||0:0;var ptC=document.getElementById('has-pt').checked;var pt=ptC?parseInt(document.getElementById('pt-amount').value)||0:0;var gross=(tp+pf+pt)*12;var dedN=75000;var dedO=150000;var taxN=Math.max(0,gross-dedN);var taxO=Math.max(0,gross-dedO);var calcN=0,calcO=0;if(taxN>300000&&taxN<=600000)calcN=(taxN-300000)*0.05;else if(taxN>600000&&taxN<=900000)calcN=15000+(taxN-600000)*0.1;else if(taxN>900000&&taxN<=1200000)calcN=45000+(taxN-900000)*0.15;else if(taxN>1200000&&taxN<=1500000)calcN=90000+(taxN-1200000)*0.2;else if(taxN>1500000)calcN=150000+(taxN-1500000)*0.3;if(taxO>250000&&taxO<=500000)calcO=(taxO-250000)*0.05;else if(taxO>500000&&taxO<=750000)calcO=12500+(taxO-500000)*0.1;else if(taxO>750000&&taxO<=1000000)calcO=37500+(taxO-750000)*0.15;else if(taxO>1000000&&taxO<=1250000)calcO=75000+(taxO-1000000)*0.2;else if(taxO>1250000&&taxO<=1500000)calcO=125000+(taxO-1250000)*0.25;else if(taxO>1500000)calcO=187500+(taxO-1500000)*0.3;var rebateN=taxN<=1200000?Math.min(calcN,60000):0;var rebateO=taxO<=500000?Math.min(calcO,12500):0;var totalN=Math.max(0,calcN-rebateN);var totalO=Math.max(0,calcO-rebateO);var diff=totalO-totalN;var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};document.getElementById('val-new-gross').textContent=f(gross);document.getElementById('val-old-gross').textContent=f(gross);document.getElementById('val-new-total-ded').textContent=f(dedN);document.getElementById('val-old-total-ded').textContent=f(dedO);document.getElementById('val-new-taxable').textContent=f(taxN);document.getElementById('val-old-taxable').textContent=f(taxO);document.getElementById('val-new-tax-before').textContent=f(calcN);document.getElementById('val-old-tax-before').textContent=f(calcO);document.getElementById('val-new-rebate').textContent=f(rebateN);document.getElementById('val-old-rebate').textContent=f(rebateO);document.getElementById('val-new-total').textContent=f(totalN);document.getElementById('val-old-total').textContent=f(totalO);document.getElementById('hero-savings-amt').textContent=f(Math.max(0,diff));document.getElementById('insight-save-amt').textContent=f(Math.max(0,diff));document.getElementById('insight-percent').textContent=gross>0?((Math.abs(diff)/gross)*100).toFixed(1)+'%':'0%';var winner=diff>0;document.querySelector('.winner-pill').textContent=(winner?'👑 New Regime Wins':'👑 Old Regime Wins');document.getElementById('hero-savings-amt').parentElement.querySelector('span:last-child').textContent='per year by choosing '+(winner?'New':'Old')+' Regime';document.getElementById('head-new').style.background=winner?'#22C55E':'#111827';document.getElementById('head-new').style.color=winner?'#fff':'#F8FAFC';document.getElementById('head-old').style.background=winner?'#111827':'#EC4899';document.getElementById('head-old').style.color=winner?'#F8FAFC':'#fff';document.querySelectorAll('.col-new').forEach(function(el){el.style.background=winner?'rgba(34,197,94,0.1)':'transparent'});document.querySelectorAll('.col-old').forEach(function(el){el.style.background=winner?'transparent':'rgba(236,72,153,0.1)'});document.getElementById('val-new-total').style.background=winner?'#22C55E':'#111827';document.getElementById('val-new-total').style.color=winner?'#fff':'#F8FAFC';document.getElementById('val-new-total').style.fontWeight='bold';document.getElementById('val-old-total').style.background=winner?'#111827':'#EC4899';document.getElementById('val-old-total').style.color=winner?'#F8FAFC':'#fff';document.getElementById('val-old-total').style.fontWeight='bold';var f=function(n){return'₹'+Math.round(n||0).toLocaleString('en-IN')};var pfVal=pfC?parseInt(document.getElementById('pf-amount').value)||0:0;var ptVal=ptC?parseInt(document.getElementById('pt-amount').value)||0:0;var ppfVal=parseInt(document.getElementById('invest-ppf').value)||0;var licVal=parseInt(document.getElementById('invest-lic').value)||0;var elssVal=parseInt(document.getElementById('invest-elss').value)||0;var total80c=Math.min(ppfVal+licVal+elssVal,150000);var npsVal=parseInt(document.getElementById('nps-self-amount').value)||0;document.getElementById('det-ded-std-new').textContent=f(75000);document.getElementById('det-ded-std-old').textContent=f(50000);document.getElementById('det-ded-hra-new').textContent=f(0);document.getElementById('det-ded-hra-old').textContent=f(0);document.getElementById('det-ded-80c-new').textContent=f(0);document.getElementById('det-ded-80c-old').textContent=f(total80c);document.getElementById('det-ded-80d-new').textContent=f(0);document.getElementById('det-ded-80d-old').textContent=f(0);document.getElementById('det-ded-nps-new').textContent=f(0);document.getElementById('det-ded-nps-old').textContent=f(Math.min(npsVal,50000));document.getElementById('det-ded-pt-new').textContent=f(0);document.getElementById('det-ded-pt-old').textContent=f(ptVal*12);document.getElementById('det-ded-hl-new').textContent=f(0);document.getElementById('det-ded-hl-old').textContent=f(0);document.getElementById('det-ded-total-new').textContent=f(75000);document.getElementById('det-ded-total-old').textContent=f(50000+total80c+Math.min(npsVal,50000)+ptVal*12)}">Continue &rarr;</button>
+                        </div>
+                    </div>
+
+                    <!-- Right Pane: Live Preview -->
+                    <div class="wizard-right-pane">
+                        <div class="live-preview-panel">
+                            <h3 class="panel-title">LIVE TAX ESTIMATE</h3>
+                            <p class="panel-subtitle">(Updates as you answer)</p>
+                            <div class="panel-content">
+                                <div class="gross-estimate-box">
+                                    <span>Estimated Gross Salary</span>
+                                    <h4 id="preview-gross">₹ -- / year</h4>
+                                </div>
+                                <div class="preview-metrics hidden">
+                                    <div class="metric">
+                                        <span>New Regime</span>
+                                        <strong id="preview-new-tax">₹0</strong>
+                                    </div>
+                                    <div class="metric">
+                                        <span>Old Regime</span>
+                                        <strong id="preview-old-tax">₹0</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Redesigned Results Dashboard -->
+        <main id="results-page" class="view">
+            <!-- Dashboard Header Bar -->
+            <header class="dashboard-header">
+                <div class="container dash-header-content">
+                    <div class="dash-title-group">
+                        <div class="logo-icon small" id="dash-home-btn" title="Back to Home" style="cursor: pointer;" onclick="document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active')});document.getElementById('landing-page').classList.add('active')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-svg"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                        </div>
+                        <div>
+                            <h1>Income Tax Calculator</h1>
+                            <p>FY 2025-26 (AY 2026-27)</p>
+                        </div>
+                    </div>
+                    <div class="dash-header-actions">
+                        
+                        <button class="theme-toggle" onclick="document.body.classList.toggle('light-mode');var m=document.querySelectorAll('.moon-icon');var s=document.querySelectorAll('.sun-icon');m.forEach(function(el){el.style.display=document.body.classList.contains('light-mode')?'block':'none'});s.forEach(function(el){el.style.display=document.body.classList.contains('light-mode')?'none':'block'})">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                        </button>
+                        <div class="fy-dropdown">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>FY 2025-26 (AY 2026-27)</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><path d="M6 9l6 6 6-6"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid container">
+                <!-- Left Panel: Your Inputs -->
+                <aside class="dash-sidebar">
+                    <div class="sidebar-card-dash">
+                        <div class="sidebar-header-dash">
+                            <div class="icon-box purple">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                            </div>
+                            <div>
+                                <h3>Your Inputs</h3>
+                                <p>Enter your financial details to compare tax regimes</p>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-inputs">
+                            <div class="dash-input-group">
+                                <label>Gross Annual Salary (₹) <span class="info-icon">i</span></label>
+                                <div class="dash-input-wrapper">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                    <input type="number" id="dash-gross-input" value="1260000">
+                                </div>
+                            </div>
+
+                            <div class="dash-input-group">
+                                <label>Other Income (₹) <span class="info-icon">i</span></label>
+                                <div class="dash-input-wrapper">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="field-icon"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                    <input type="number" id="dash-other-input" value="0">
+                                </div>
+                            </div>
+
+                            <div class="collapsible-section">
+                                <div class="collapsible-header">
+                                    <div class="header-title">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="section-icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                                        Deductions & Investments
+                                    </div>
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron"><path d="M18 15l-6-6-6 6"></path></svg>
+                                </div>
+                                <div class="collapsible-body">
+                                    <div class="inline-input-row">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> LIC Premium</span>
+                                        <input type="number" id="dash-lic-input" value="0">
+                                    </div>
+                                    <div class="inline-input-row">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg> Home Loan Interest</span>
+                                        <input type="number" id="dash-hl-input" value="0">
+                                    </div>
+                                    <div class="inline-input-row">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> EPF Contribution</span>
+                                        <input type="number" id="dash-epf-input" value="0">
+                                    </div>
+                                    <div class="inline-input-row">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> ELSS Investments</span>
+                                        <input type="number" id="dash-elss-input" value="0">
+                                    </div>
+                                    <div class="inline-input-row">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg> NPS Contribution</span>
+                                        <input type="number" id="dash-nps-input" value="0">
+                                    </div>
+                                    <div class="inline-input-row">
+                                        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg> Other 80C Deductions</span>
+                                        <input type="number" id="dash-other80c-input" value="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sidebar-info-banner">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                <span>These deductions are considered only in Old Regime.</span>
+                            </div>
+
+                            <button class="primary-cta recalculate-dash-btn" id="dash-recalculate-btn">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"></path><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                                Recalculate Comparison
+                            </button>
+                        </div>
+                    </div>
+                    <div class="sidebar-disclaimer">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        Disclaimer: This calculator provides estimates based on current tax laws. Please consult a tax advisor.
+                    </div>
+                </aside>
+
+                <!-- Main Panel: Dashboard Content -->
+                <main class="dash-main">
+                    <!-- Hero Recommendation Banner -->
+                    <div class="hero-recommendation" id="hero-banner">
+                        <div class="hero-left">
+                            <div class="trophy-glow">
+                                🏆
+                            </div>
+                            <div class="hero-text">
+                                <p class="hero-label">Recommended for You</p>
+                                <div class="hero-savings-group">
+                                    <span>You save</span>
+                                    <h2 id="hero-savings-amt">₹78,884</h2>
+                                    <span>per year by choosing the New Regime.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-right">
+                            <div class="winner-pill">
+                                👑 New Regime Wins
+                            </div>
+                            <button class="primary-cta small" id="save-pdf-btn" style="margin-top: 12px; background: #22C55E; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                                Save as PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Tax Regime Comparison Section -->
+                    <div class="comparison-section">
+                        <div class="comparison-header">
+                            <div class="header-left">
+                                <div class="icon-box-small blue">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"></path><path d="M18 20V4"></path><path d="M6 20v-4"></path></svg>
+                                </div>
+                                <div>
+                                    <h3>Tax Regime Comparison</h3>
+                                    <p>Comparison for FY 2025-26 (AY 2026-27)</p>
+                                </div>
+                            </div>
+                            <div class="header-right">
+                                <div class="mini-dropdown">
+                                    All amounts in ₹
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-grid-main" id="comp-grid">
+                            <!-- Header Row -->
+                            <div class="grid-cell header labels"></div>
+                            <div class="grid-cell header col-new" id="head-new">
+                                <h4>New Regime (FY 25-26)</h4>
+                            </div>
+                            <div class="grid-cell header col-old" id="head-old">
+                                <h4>Old Regime (FY 25-26)</h4>
+                            </div>
+
+                            <!-- Gross Income Row -->
+                            <div class="grid-cell label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                Gross Income
+                            </div>
+                            <div class="grid-cell val col-new" id="val-new-gross">₹ --</div>
+                            <div class="grid-cell val col-old" id="val-old-gross">₹ --</div>
+
+                            <!-- Total Deductions Row -->
+                            <div class="grid-cell label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                                Total Deductions
+                            </div>
+                            <div class="grid-cell val col-new" id="val-new-total-ded">₹ --</div>
+                            <div class="grid-cell val col-old" id="val-old-total-ded">₹ --</div>
+
+                            <!-- Taxable Income Row -->
+                            <div class="grid-cell label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                                Taxable Income
+                            </div>
+                            <div class="grid-cell val col-new" id="val-new-taxable">₹ --</div>
+                            <div class="grid-cell val col-old" id="val-old-taxable">₹ --</div>
+
+                            <!-- Spacer Row -->
+                            <div class="grid-cell spacer"></div>
+                            <div class="grid-cell spacer col-new"></div>
+                            <div class="grid-cell spacer col-old"></div>
+
+                            <!-- Tax on Income Row -->
+                            <div class="grid-cell label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg>
+                                Tax on Income
+                            </div>
+                            <div class="grid-cell val col-new" id="val-new-tax-before">₹ --</div>
+                            <div class="grid-cell val col-old" id="val-old-tax-before">₹ --</div>
+
+                            <!-- Rebate Row -->
+                            <div class="grid-cell label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 8v8"></path><path d="M8 12h8"></path></svg>
+                                Rebate u/s 87A
+                            </div>
+                            <div class="grid-cell val col-new" id="val-new-rebate">₹ --</div>
+                            <div class="grid-cell val col-old" id="val-old-rebate">₹ --</div>
+
+                            <!-- Spacer Row -->
+                            <div class="grid-cell spacer"></div>
+                            <div class="grid-cell spacer col-new"></div>
+                            <div class="grid-cell spacer col-old"></div>
+
+                            <!-- Total Tax Payable Row -->
+                            <div class="grid-cell label highlight">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                Total Tax Payable
+                            </div>
+                            <div class="grid-cell val col-new highlight purple" id="val-new-total">₹ --</div>
+<div class="grid-cell val col-old highlight pink" id="val-old-total">₹ --</div>
+                        </div>
+                    </div>
+
+                    <!-- Insights Grid -->
+                    <div class="insights-grid-dash">
+                        <!-- Total You Save Card -->
+                        <div class="insight-card-dash">
+                            <div class="insight-content">
+                                <p class="insight-label">Total You Save</p>
+                                <h3 id="insight-save-amt">₹78,884</h3>
+                                <p class="insight-sub">per year by choosing New Regime</p>
+                            </div>
+                            <div class="progress-ring-container">
+                                <div class="progress-ring-dash">
+                                    <svg width="80" height="80">
+                                        <circle class="progress-ring-bg" cx="40" cy="40" r="35"></circle>
+                                        <circle class="progress-ring-fill" id="save-progress-fill" cx="40" cy="40" r="35"></circle>
+                                    </svg>
+                                    <div class="ring-icon">
+                                        🐷
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- More in Hand Card -->
+                        <div class="insight-card-dash">
+                            <div class="insight-content">
+                                <p class="insight-label">More in Hand</p>
+                                <h3 id="insight-percent">6.62%</h3>
+                                <p class="insight-sub">increase in take home salary</p>
+                            </div>
+                            <div class="trend-icon-box">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--clr-purple);"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                            </div>
+                        </div>
+
+                        <!-- Bar Chart Card -->
+                        <div class="insight-card-dash">
+                            <p class="insight-label">Take Home Salary Comparison</p>
+                            <div class="mini-bar-chart">
+                                <div class="chart-y-axis">
+                                    <span>₹14L</span>
+                                    <span>₹10L</span>
+                                    <span>₹8L</span>
+                                    <span>₹6L</span>
+                                    <span>₹4L</span>
+                                    <span>₹2L</span>
+                                    <span>₹0</span>
+                                </div>
+                                <div class="chart-bars-dash">
+                                    <div class="bar-group">
+                                        <div class="bar-dash purple" id="bar-new" style="height: 84%;">
+                                            <span class="bar-val">₹11.79L</span>
+                                        </div>
+                                        <p>New Regime</p>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar-dash pink" id="bar-old" style="height: 78%;">
+                                            <span class="bar-val">₹11.00L</span>
+                                        </div>
+                                        <p>Old Regime</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Deductions Table -->
+                    <div style="margin-top: 32px; padding: 24px; background: #111827; border: 1px solid #1F2937; border-radius: 16px;">
+                        <h3 style="color: #F8FAFC; font-size: 1.25rem; margin-bottom: 20px; display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 1.5rem;">📋</span> Detailed Deductions Breakdown
+                        </h3>
+                        <table style="width: 100%; border-collapse: collapse; color: #F8FAFC;">
+                            <thead>
+                                <tr style="border-bottom: 2px solid #1F2937;">
+                                    <th style="text-align: left; padding: 12px; color: #94A3B8;">Deduction Section</th>
+                                    <th style="text-align: right; padding: 12px; color: #22C55E;">New Regime (₹)</th>
+                                    <th style="text-align: right; padding: 12px; color: #EC4899;">Old Regime (₹)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="detailed-deductions-body">
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">Standard Deduction</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-std-new">₹75,000</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-std-old">₹50,000</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">HRA Exemption</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-hra-new">₹0</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-hra-old">₹0</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">Section 80C (PPF, LIC, ELSS)</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-80c-new">₹0</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-80c-old">₹0</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">Section 80D (Health Insurance)</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-80d-new">₹0</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-80d-old">₹0</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">NPS Contribution</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-nps-new">₹0</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-nps-old">₹0</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">Professional Tax</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-pt-new">₹0</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-pt-old">₹0</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #1F2937;">
+                                    <td style="padding: 12px;">Home Loan Interest (Section 24)</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-hl-new">₹0</td>
+                                    <td style="text-align: right; padding: 12px;" id="det-ded-hl-old">₹0</td>
+                                </tr>
+                                <tr style="font-weight: bold; background: rgba(124,58,237,0.1);">
+                                    <td style="padding: 12px;">Total Deductions</td>
+                                    <td style="text-align: right; padding: 12px; color: #22C55E;" id="det-ded-total-new">₹75,000</td>
+                                    <td style="text-align: right; padding: 12px; color: #EC4899;" id="det-ded-total-old">₹50,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Bottom Insight Message -->
+                    <div class="bottom-message-dash">
+                        <div class="icon-box-small purple">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.663 17h4.674"></path><path d="M10 20h4"></path><path d="M9 14h6"></path><path d="M12 3a7 7 0 0 1 7 7c0 1.63-.563 3.123-1.5 4.317a7.02 7.02 0 0 1-1.5 1.683c-.5.5-1.5 1.5-1.5 3h-1c0-1.5-1-2.5-1.5-3a7.02 7.02 0 0 1-1.5-1.683A6.995 6.995 0 0 1 5 10a7 7 0 0 1 7-7z"></path></svg>
+                        </div>
+                        <p id="bottom-insight-text">Insight: The New Regime offers lower tax rates and higher standard deduction, resulting in more take home salary for you.</p>
+                    </div>
+
+                </main>
+            </div>
+        </main>
+</div>
+    </div>
+
+    <!-- Resources Hub View - Card-Based Fintech Dashboard -->
+    <main id="resources-page" class="view bg-dark">
+        <header class="resources-header" style="padding: 20px 0; border-bottom: 1px solid #1F2937;">
+            <div class="container res-nav" style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="logo-group" id="res-home-btn" onclick="document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById('landing-page').classList.add('active')" style="cursor: pointer;">
+                    <div class="logo-icon small purple" style="width: 32px; height: 32px; background: #7C3AED; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-size: 18px;">📊</span>
+                    </div>
+                    <span class="logo-text" style="color: #F8FAFC; font-weight: 600; margin-left: 10px;">TaxRegime</span>
+                </div>
+                <button class="primary-cta small" id="res-start-btn" onclick="document.getElementById('resources-page').classList.remove('active');document.getElementById('wizard-page').classList.add('active');" style="background: #7C3AED; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Start Calculation</button>
+            </div>
+        </header>
+
+        <section class="res-dashboard container" style="padding: 40px 24px; max-width: 1400px; margin: 0 auto;">
+
+            <!-- Dashboard Header -->
+            <div class="dashboard-header-section" style="text-align: center; margin-bottom: 32px; padding: 40px; background: linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%); border-radius: 20px; border: 1px solid #1F2937;">
+                <span class="dash-badge" style="display: inline-block; background: #7C3AED; color: white; padding: 8px 20px; border-radius: 20px; font-size: 14px; font-weight: 600; margin-bottom: 16px;">📚 Resources</span>
+                <h1 style="font-family: 'Fraunces', serif; font-size: 2.5rem; color: #F8FAFC; margin-bottom: 12px;">Tax Regime Resources</h1>
+            </div>
+
+            <!-- Resource Categories Grid -->
+            <div class="resource-categories-grid" style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-bottom: 40px;">
+                <div class="resource-category-card active" data-category="basics" onclick="document.querySelectorAll('.resource-section').forEach(s=>s.style.display='none');document.getElementById('section-basics').style.display='block';this.style.background='linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%)';this.style.border='2px solid #7C3AED';document.querySelectorAll('.resource-category-card').forEach(c=>{if(c!==this){c.style.background='#111827';c.style.border='1px solid #1F2937'}})">
+                    <div class="rcc-icon" style="font-size: 2.5rem; margin-bottom: 12px;">🧾</div>
+                    <div class="rcc-text">
+                        <h3 style="color: #F8FAFC; font-size: 1rem; margin-bottom: 4px;">Tax Basics</h3>
+                        <p style="color: #94A3B8; font-size: 0.75rem;">Fundamentals</p>
+                    </div>
+                </div>
+
+                <div class="resource-category-card" data-category="regimes" onclick="document.querySelectorAll('.resource-section').forEach(s=>s.style.display='none');document.getElementById('section-regimes').style.display='block';this.style.background='linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%)';this.style.border='2px solid #7C3AED';document.querySelectorAll('.resource-category-card').forEach(c=>{if(c!==this){c.style.background='#111827';c.style.border='1px solid #1F2937'}})">
+                    <div class="rcc-icon" style="font-size: 2.5rem; margin-bottom: 12px;">⚖️</div>
+                    <div class="rcc-text">
+                        <h3 style="color: #F8FAFC; font-size: 1rem; margin-bottom: 4px;">Regimes</h3>
+                        <p style="color: #94A3B8; font-size: 0.75rem;">Old vs New</p>
+                    </div>
+                </div>
+
+                <div class="resource-category-card" data-category="savings" onclick="document.querySelectorAll('.resource-section').forEach(s=>s.style.display='none');document.getElementById('section-savings').style.display='block';this.style.background='linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%)';this.style.border='2px solid #7C3AED';document.querySelectorAll('.resource-category-card').forEach(c=>{if(c!==this){c.style.background='#111827';c.style.border='1px solid #1F2937'}})">
+                    <div class="rcc-icon" style="font-size: 2.5rem; margin-bottom: 12px;">💰</div>
+                    <div class="rcc-text">
+                        <h3 style="color: #F8FAFC; font-size: 1rem; margin-bottom: 4px;">Tax Savings</h3>
+                        <p style="color: #94A3B8; font-size: 0.75rem;">Deductions</p>
+                    </div>
+                </div>
+
+                <div class="resource-category-card" data-category="rebate" onclick="document.querySelectorAll('.resource-section').forEach(s=>s.style.display='none');document.getElementById('section-rebate').style.display='block';this.style.background='linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%)';this.style.border='2px solid #7C3AED';document.querySelectorAll('.resource-category-card').forEach(c=>{if(c!==this){c.style.background='#111827';c.style.border='1px solid #1F2937'}})">
+                    <div class="rcc-icon" style="font-size: 2.5rem; margin-bottom: 12px;">🏆</div>
+                    <div class="rcc-text">
+                        <h3 style="color: #F8FAFC; font-size: 1rem; margin-bottom: 4px;">Rebate 87A</h3>
+                        <p style="color: #94A3B8; font-size: 0.75rem;">Zero Tax</p>
+                    </div>
+                </div>
+
+                <div class="resource-category-card" data-category="slabs" onclick="document.querySelectorAll('.resource-section').forEach(s=>s.style.display='none');document.getElementById('section-slabs').style.display='block';this.style.background='linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%)';this.style.border='2px solid #7C3AED';document.querySelectorAll('.resource-category-card').forEach(c=>{if(c!==this){c.style.background='#111827';c.style.border='1px solid #1F2937'}})">
+                    <div class="rcc-icon" style="font-size: 2.5rem; margin-bottom: 12px;">📊</div>
+                    <div class="rcc-text">
+                        <h3 style="color: #F8FAFC; font-size: 1rem; margin-bottom: 4px;">Tax Slabs</h3>
+                        <p style="color: #94A3B8; font-size: 0.75rem;">FY 2025-26</p>
+                    </div>
+                </div>
+
+                <div class="resource-category-card" data-category="faq" onclick="document.querySelectorAll('.resource-section').forEach(s=>s.style.display='none');document.getElementById('section-faq').style.display='block';this.style.background='linear-gradient(135deg, rgba(124,58,237,0.2) 0%, rgba(236,72,153,0.1) 100%)';this.style.border='2px solid #7C3AED';document.querySelectorAll('.resource-category-card').forEach(c=>{if(c!==this){c.style.background='#111827';c.style.border='1px solid #1F2937'}})">
+                    <div class="rcc-icon" style="font-size: 2.5rem; margin-bottom: 12px;">❓</div>
+                    <div class="rcc-text">
+                        <h3 style="color: #F8FAFC; font-size: 1rem; margin-bottom: 4px;">FAQ</h3>
+                        <p style="color: #94A3B8; font-size: 0.75rem;">Questions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="resource-content-area">
+
+                <!-- Tax Basics Section -->
+                <div class="resource-section active" id="section-basics" style="display: block !important;">
+                    <div class="section-header" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #1F2937;">
+                        <span class="section-icon" style="font-size: 2rem;">🧾</span>
+                        <h2 style="color: #F8FAFC; font-size: 1.5rem;">Tax Basics</h2>
+                    </div>
+                    <div class="section-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div class="content-mini-card" style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div class="cmc-icon" style="font-size: 3rem; margin-bottom: 16px;">🏠</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">What is Income Tax?</h4>
+                            <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 16px; line-height: 1.5;">A portion of annual earnings paid to government for public services.</p>
+                            <div style="display: flex; height: 30px; border-radius: 6px; overflow: hidden; margin-top: 12px;">
+                                <div style="flex: 7; background: #22C55E; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; color: #000;">YOU</div>
+                                <div style="flex: 3; background: #F59E0B; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: bold; color: #000;">TAX</div>
+                            </div>
+                        </div>
+                        <div class="content-mini-card" style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div class="cmc-icon" style="font-size: 3rem; margin-bottom: 16px;">💰</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">Taxable Income</h4>
+                            <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 16px; line-height: 1.5;">Total income minus deductions.</p>
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                                <span style="background: rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 8px; color: #F8FAFC;">₹12L</span>
+                                <span style="color: #64748B;">−</span>
+                                <span style="background: rgba(255,255,255,0.1); padding: 8px 12px; border-radius: 8px; color: #F8FAFC;">₹75K</span>
+                                <span style="color: #64748B;">=</span>
+                                <span style="background: #7C3AED; padding: 8px 12px; border-radius: 8px; color: white; font-weight: bold;">₹11.25L</span>
+                            </div>
+                        </div>
+                        <div class="content-mini-card" style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div class="cmc-icon" style="font-size: 3rem; margin-bottom: 16px;">📉</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">Standard Deduction</h4>
+                            <p style="color: #94A3B8; font-size: 0.9rem; margin-bottom: 16px; line-height: 1.5;">Automatic deduction for all salaried employees.</p>
+                            <div style="margin-top: 12px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 12px; color: #94A3B8;"><span>New Regime</span><span style="color: #7C3AED; font-weight: bold;">₹75,000</span></div>
+                                <div style="height: 8px; background: #1F2937; border-radius: 4px; margin-bottom: 12px;"><div style="width: 100%; height: 100%; background: #7C3AED; border-radius: 4px;"></div></div>
+                                <div style="display: flex; justify-content: space-between; font-size: 12px; color: #94A3B8;"><span>Old Regime</span><span style="color: #7C3AED; font-weight: bold;">₹50,000</span></div>
+                                <div style="height: 8px; background: #1F2937; border-radius: 4px;"><div style="width: 67%; height: 100%; background: #7C3AED; border-radius: 4px;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Regime Comparison Section -->
+                <div class="resource-section" id="section-regimes" style="display: none !important;">
+                    <div class="section-header" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #1F2937;">
+                        <span class="section-icon" style="font-size: 2rem;">⚖️</span>
+                        <h2 style="color: #F8FAFC; font-size: 1.5rem;">Tax Regime Comparison</h2>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 24px;">
+                        <div style="background: #111827; border: 1px solid #1F2937; border-left: 4px solid #3B82F6; border-radius: 16px; padding: 24px;">
+                            <h3 style="color: #F8FAFC; font-size: 1.2rem; margin-bottom: 16px;">🏛️ Old Tax Regime</h3>
+                            <ul style="color: #94A3B8; list-style: none; padding: 0;">
+                                <li style="padding: 8px 0; border-bottom: 1px solid #1F2937;">✓ Tax rates up to 30%</li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #1F2937;">✓ 70+ deductions allowed</li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #1F2937;">✓ 80C, HRA, 80D applicable</li>
+                                <li style="padding: 8px 0;">✓ Best if investments > ₹3.75L</li>
+                            </ul>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-left: 4px solid #7C3AED; border-radius: 16px; padding: 24px;">
+                            <h3 style="color: #F8FAFC; font-size: 1.2rem; margin-bottom: 16px;">🆕 New Tax Regime</h3>
+                            <ul style="color: #94A3B8; list-style: none; padding: 0;">
+                                <li style="padding: 8px 0; border-bottom: 1px solid #1F2937;">✓ Lower tax rates (max 25%)</li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #1F2937;">✓ No deductions allowed</li>
+                                <li style="padding: 8px 0; border-bottom: 1px solid #1F2937;">✓ Higher standard deduction</li>
+                                <li style="padding: 8px 0;">✓ Zero tax up to ₹12L</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; overflow: hidden;">
+                        <div style="display: flex; background: #7C3AED; color: white; font-weight: bold;">
+                            <div style="flex: 1; padding: 16px;">Feature</div>
+                            <div style="flex: 1; padding: 16px; text-align: center;">Old Regime</div>
+                            <div style="flex: 1; padding: 16px; text-align: center;">New Regime</div>
+                        </div>
+                        <div style="display: flex; border-bottom: 1px solid #1F2937;">
+                            <div style="flex: 1; padding: 16px; color: #F8FAFC;">Tax Rates</div>
+                            <div style="flex: 1; padding: 16px; text-align: center;"><span style="background: rgba(239,68,68,0.2); color: #EF4444; padding: 4px 12px; border-radius: 20px; font-size: 12px;">High</span></div>
+                            <div style="flex: 1; padding: 16px; text-align: center;"><span style="background: rgba(34,197,94,0.2); color: #22C55E; padding: 4px 12px; border-radius: 20px; font-size: 12px;">Low</span></div>
+                        </div>
+                        <div style="display: flex; border-bottom: 1px solid #1F2937;">
+                            <div style="flex: 1; padding: 16px; color: #F8FAFC;">80C Deduction</div>
+                            <div style="flex: 1; padding: 16px; text-align: center;"><span style="background: rgba(34,197,94,0.2); color: #22C55E; padding: 4px 12px; border-radius: 20px; font-size: 12px;">✅ Allowed</span></div>
+                            <div style="flex: 1; padding: 16px; text-align: center;"><span style="background: rgba(239,68,68,0.2); color: #EF4444; padding: 4px 12px; border-radius: 20px; font-size: 12px;">❌ Not Allowed</span></div>
+                        </div>
+                        <div style="display: flex;">
+                            <div style="flex: 1; padding: 16px; color: #F8FAFC;">HRA</div>
+                            <div style="flex: 1; padding: 16px; text-align: center;"><span style="background: rgba(34,197,94,0.2); color: #22C55E; padding: 4px 12px; border-radius: 20px; font-size: 12px;">✅ Allowed</span></div>
+                            <div style="flex: 1; padding: 16px; text-align: center;"><span style="background: rgba(239,68,68,0.2); color: #EF4444; padding: 4px 12px; border-radius: 20px; font-size: 12px;">❌ Not Allowed</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tax Savings Section -->
+                <div class="resource-section" id="section-savings" style="display: none !important;">
+                    <div class="section-header" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #1F2937;">
+                        <span class="section-icon" style="font-size: 2rem;">💰</span>
+                        <h2 style="color: #F8FAFC; font-size: 1.5rem;">Ways to Save Tax</h2>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 12px;">📜</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">Section 80C</h4>
+                            <p style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 16px;">Max ₹1,50,000</p>
+                            <div style="background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); padding: 16px; border-radius: 12px;">
+                                <span style="color: #94A3B8; font-size: 0.8rem;">Save</span>
+                                <div style="font-size: 1.5rem; font-weight: bold; background: linear-gradient(135deg, #EC4899, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">₹45,000</div>
+                            </div>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 12px;">🏥</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">Section 80D</h4>
+                            <p style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 16px;">Max ₹75,000</p>
+                            <div style="background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); padding: 16px; border-radius: 12px;">
+                                <span style="color: #94A3B8; font-size: 0.8rem;">Save</span>
+                                <div style="font-size: 1.5rem; font-weight: bold; background: linear-gradient(135deg, #EC4899, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">₹22,500</div>
+                            </div>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 12px;">👴</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">NPS (80CCD)</h4>
+                            <p style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 16px;">Max ₹50,000</p>
+                            <div style="background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); padding: 16px; border-radius: 12px;">
+                                <span style="color: #94A3B8; font-size: 0.8rem;">Save</span>
+                                <div style="font-size: 1.5rem; font-weight: bold; background: linear-gradient(135deg, #EC4899, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">₹15,000</div>
+                            </div>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px; text-align: center;">
+                            <div style="font-size: 2rem; margin-bottom: 12px;">🏠</div>
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 8px;">HRA</h4>
+                            <p style="color: #94A3B8; font-size: 0.85rem; margin-bottom: 16px;">Varies</p>
+                            <div style="background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(124,58,237,0.2)); padding: 16px; border-radius: 12px;">
+                                <span style="color: #94A3B8; font-size: 0.8rem;">Save</span>
+                                <div style="font-size: 1.5rem; font-weight: bold; background: linear-gradient(135deg, #EC4899, #7C3AED); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">₹60,000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rebate Section -->
+                <div class="resource-section" id="section-rebate" style="display: none !important;">
+                    <div class="section-header" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #1F2937;">
+                        <span class="section-icon" style="font-size: 2rem;">🏆</span>
+                        <h2 style="color: #F8FAFC; font-size: 1.5rem;">Section 87A Rebate</h2>
+                    </div>
+                    <div style="display: flex; gap: 40px; align-items: center; padding: 32px; background: #111827; border: 1px solid #1F2937; border-radius: 20px;">
+                        <div style="width: 150px; height: 150px; position: relative;">
+                            <svg viewBox="0 0 100 100" style="transform: rotate(-90deg);">
+                                <circle cx="50" cy="50" r="40" fill="none" stroke="#22C55E" stroke-width="20"/>
+                            </svg>
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                                <span style="font-size: 1.5rem; font-weight: bold; color: #22C55E;">₹0</span>
+                                <div style="font-size: 0.8rem; color: #64748B;">Tax</div>
+                            </div>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; margin-bottom: 16px;">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <span style="font-size: 1.5rem;">🆕</span>
+                                    <h4 style="color: #F8FAFC;">New Regime</h4>
+                                </div>
+                                <div style="color: #94A3B8; font-size: 0.9rem;">Zero tax up to</div>
+                                <div style="font-size: 2rem; font-weight: bold; color: #22C55E; margin: 8px 0;">₹12,00,000</div>
+                                <div style="height: 8px; background: #1F2937; border-radius: 4px;"><div style="width: 100%; height: 100%; background: linear-gradient(90deg, #7C3AED, #22C55E); border-radius: 4px;"></div></div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px;">
+                                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                    <span style="font-size: 1.5rem;">🏛️</span>
+                                    <h4 style="color: #F8FAFC;">Old Regime</h4>
+                                </div>
+                                <div style="color: #94A3B8; font-size: 0.9rem;">Zero tax up to</div>
+                                <div style="font-size: 2rem; font-weight: bold; color: #22C55E; margin: 8px 0;">₹5,00,000</div>
+                                <div style="height: 8px; background: #1F2937; border-radius: 4px;"><div style="width: 42%; height: 100%; background: linear-gradient(90deg, #7C3AED, #22C55E); border-radius: 4px;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tax Slabs Section -->
+                <div class="resource-section" id="section-slabs" style="display: none !important;">
+                    <div class="section-header" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #1F2937;">
+                        <span class="section-icon" style="font-size: 2rem;">📊</span>
+                        <h2 style="color: #F8FAFC; font-size: 1.5rem;">Tax Slabs FY 2025-26</h2>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px;">
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #1F2937;">🆕 New Regime</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹0 - ₹4L</span><span style="color: #7C3AED; font-weight: bold;">0%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹4L - ₹8L</span><span style="color: #7C3AED; font-weight: bold;">5%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹8L - ₹12L</span><span style="color: #7C3AED; font-weight: bold;">10%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹12L - ₹16L</span><span style="color: #7C3AED; font-weight: bold;">15%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">Above ₹24L</span><span style="color: #7C3AED; font-weight: bold;">30%</span></div>
+                            </div>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 16px; padding: 24px;">
+                            <h4 style="color: #F8FAFC; font-size: 1.1rem; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid #1F2937;">🏛️ Old Regime</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹0 - ₹2.5L</span><span style="color: #7C3AED; font-weight: bold;">0%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹2.5L - ₹5L</span><span style="color: #7C3AED; font-weight: bold;">5%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">₹5L - ₹10L</span><span style="color: #7C3AED; font-weight: bold;">20%</span></div>
+                                <div style="display: flex; justify-content: space-between; padding: 10px; background: rgba(255,255,255,0.03); border-radius: 8px;"><span style="color: #94A3B8;">Above ₹10L</span><span style="color: #7C3AED; font-weight: bold;">30%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="resource-section" id="section-faq" style="display: none !important;">
+                    <div class="section-header" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid #1F2937;">
+                        <span class="section-icon" style="font-size: 2rem;">❓</span>
+                        <h2 style="color: #F8FAFC; font-size: 1.5rem;">Frequently Asked Questions</h2>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 12px; padding: 20px;">
+                            <div style="color: #F8FAFC; font-weight: 600; margin-bottom: 12px;">Q: Which regime should I choose?</div>
+                            <div style="color: #94A3B8; line-height: 1.6;">A: If deductions > ₹3.75L → Old Regime. Otherwise → New Regime saves more!</div>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 12px; padding: 20px;">
+                            <div style="color: #F8FAFC; font-weight: 600; margin-bottom: 12px;">Q: Do I need to invest to save tax?</div>
+                            <div style="color: #94A3B8; line-height: 1.6;">A: Only in Old Regime. New Regime gives lower rates automatically!</div>
+                        </div>
+                        <div style="background: #111827; border: 1px solid #1F2937; border-radius: 12px; padding: 20px;">
+                            <div style="color: #F8FAFC; font-weight: 600; margin-bottom: 12px;">Q: What is Section 80C?</div>
+                            <div style="color: #94A3B8; line-height: 1.6;">A: Deduction up to ₹1,50,000 via PPF, ELSS, LIC, EPF, etc.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="res-footer" style="text-align: center; padding: 24px; color: #64748B; border-top: 1px solid #1F2937;">
+            <div class="container">
+                <p style="margin-bottom: 12px;">🔒 All calculations happen in your browser. No data is stored or sent anywhere.</p>
+                <p style="margin-bottom: 12px;">This calculator is for general guidance only. Consult a CA for official advice.</p>
+                <p>Tax rules used (FY 2025-26)</p>
+            </div>
+        </footer>
+</main>
+    <div id="how-it-works-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="close-modal" onclick="document.getElementById('how-it-works-modal').classList.remove('active');document.body.style.overflow=''">&times;</button>
+            <div class="modal-header">
+                <div class="icon-box purple">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                </div>
+                <h2>How It Works</h2>
+            </div>
+            <div class="modal-body">
+                <div class="how-step">
+                    <div class="step-num">01</div>
+                    <div class="step-info">
+                        <h3>Input Your Profile</h3>
+                        <p>Provide your age and basic salary details. All calculations happen 100% in your browser for total privacy.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">02</div>
+                    <div class="step-info">
+                        <h3>Declare Deductions</h3>
+                        <p>Input your investments (80C, 80D), rent paid (HRA), and home loan interest to maximize Old Regime benefits.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">03</div>
+                    <div class="step-info">
+                        <h3>Dual-Engine Processing</h3>
+                        <p>Our engine calculates your tax under both Old and New regimes simultaneously using FY 2025-26 rules.</p>
+                    </div>
+                </div>
+                <div class="how-step">
+                    <div class="step-num">04</div>
+                    <div class="step-info">
+                        <h3>Get the Verdict</h3>
+                        <p>We compare the results and highlight the winner, providing a detailed breakdown of where you save the most.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tax Regimes Modal -->
+    <div id="tax-regimes-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card wide-modal">
+            <button class="close-modal" onclick="document.getElementById('tax-regimes-modal').classList.remove('active');document.body.style.overflow=''">&times;</button>
+            <div class="modal-header">
+                <div class="icon-box pink">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <h2>New vs. Old Tax Regime (FY 2025-26)</h2>
+            </div>
+            <div class="modal-body">
+                <div class="comparison-table-wrapper">
+                    <table class="regime-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Old Tax Regime</th>
+                                <th>New Tax Regime</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="f-name">Default Status</td>
+                                <td>Optional</td>
+                                <td class="highlight-new">Default</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">Standard Deduction</td>
+                                <td>₹50,000</td>
+                                <td class="highlight-new">₹75,000</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">Tax Rebate (u/s 87A)</td>
+                                <td>Up to ₹12,500</td>
+                                <td class="highlight-new">Up to ₹60,000</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">Zero Tax Threshold</td>
+                                <td>Income up to ₹5 lakh</td>
+                                <td class="highlight-new">Income up to ₹12 lakh</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">80C (PPF, LIC, ELSS)</td>
+                                <td>Allowed (up to ₹1.5L)</td>
+                                <td>Not Allowed</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">HRA & LTA</td>
+                                <td>Allowed</td>
+                                <td>Not Allowed</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">Home Loan Interest</td>
+                                <td>Allowed (up to ₹2L)</td>
+                                <td>Not Allowed (Self-occupied)</td>
+                            </tr>
+                            <tr>
+                                <td class="f-name">Surcharge (above ₹5cr)</td>
+                                <td>37%</td>
+                                <td class="highlight-new">25%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="modal-divider"></div>
+
+                <h3 class="modal-sub-title">Income Tax Slabs (FY 2025-26)</h3>
+                <div class="comparison-table-wrapper">
+                    <table class="regime-table slab-table">
+                        <thead>
+                            <tr>
+                                <th>Income Slab (₹)</th>
+                                <th>New Regime</th>
+                                <th>Old Regime</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Up to 2.5 Lakh</td>
+                                <td class="highlight-new">Nil</td>
+                                <td>Nil</td>
+                            </tr>
+                            <tr>
+                                <td>2.5 Lakh to 4 Lakh</td>
+                                <td class="highlight-new">Nil</td>
+                                <td>5%</td>
+                            </tr>
+                            <tr>
+                                <td>4 Lakh to 5 Lakh</td>
+                                <td class="highlight-new">5%</td>
+                                <td>5%</td>
+                            </tr>
+                            <tr>
+                                <td>5 Lakh to 8 Lakh</td>
+                                <td class="highlight-new">5%</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>8 Lakh to 10 Lakh</td>
+                                <td class="highlight-new">10%</td>
+                                <td>20%</td>
+                            </tr>
+                            <tr>
+                                <td>10 Lakh to 12 Lakh</td>
+                                <td class="highlight-new">10%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>12 Lakh to 16 Lakh</td>
+                                <td class="highlight-new">15%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>16 Lakh to 20 Lakh</td>
+                                <td class="highlight-new">20%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>20 Lakh to 24 Lakh</td>
+                                <td class="highlight-new">25%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>Above 24 Lakh</td>
+                                <td class="highlight-new">30%</td>
+                                <td>30%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Us Modal -->
+    <div id="about-us-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="close-modal" onclick="document.getElementById('about-us-modal').classList.remove('active');document.body.style.overflow=''">&times;</button>
+            <div class="modal-header">
+                <div class="icon-box purple">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </div>
+                <h2>About TaxRegime</h2>
+            </div>
+            <div class="modal-body">
+                <div class="about-content">
+                    <p class="about-intro">We are on a mission to simplify Indian tax laws through intuitive, privacy-first technology.</p>
+                    
+                    <div class="about-feature">
+                        <div class="a-icon">🔒</div>
+                        <div class="a-text">
+                            <strong>Privacy-First Architecture</strong>
+                            <p>Your financial data never leaves your device. All calculations are performed locally in your browser.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-feature">
+                        <div class="a-icon">⚖️</div>
+                        <div class="a-text">
+                            <strong>Dual-Engine Accuracy</strong>
+                            <p>Built on latest FY 2025-26 rules to give you the most precise comparison between Old and New regimes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="about-feature">
+                        <div class="a-icon">💡</div>
+                        <div class="a-text">
+                            <strong>No Jargon, Just Clarity</strong>
+                            <p>We translate complex tax slabs into clear, visual insights to help you save more money effortlessly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="calculator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
