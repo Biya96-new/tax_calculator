@@ -10,9 +10,8 @@ The goal is to simplify tax decision-making through a structured and user-friend
 
 ## Live Demo
 
-- Live Application: https://your-live-link-here  
-- GitHub Repository: https://github.com/your-repo-link  
-
+- Live Application: [https://your-live-link-here](https://tax-calculator-orcin-eight.vercel.app/)
+- 
 ---
 
 ## Problem Statement
