@@ -84,4 +84,5 @@ Thanks to the Codebasics AI Pro sessions for guidance and learning support.
 
 Let’s connect and collaborate on data, AI, and product-building ideas.
 
-🔗 LinkedIn: https://www.linkedin.com/in/your-profile
+🔗 LinkedIn: [https://www.linkedin.com/in/your-profile](https://www.linkedin.com/in/biya-rocky-dataanalyst/)
+
