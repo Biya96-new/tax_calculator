@@ -11,7 +11,7 @@ The goal is to simplify tax decision-making through a structured and user-friend
 ## Live Demo
 
 - Live Application: [https://your-live-link-here](https://tax-calculator-orcin-eight.vercel.app/)
-- 
+
 ---
 
 ## Problem Statement
@@ -57,12 +57,12 @@ Based on the PRD, the application was built using an AI-assisted development app
 
 - Walkthrough of Old vs New Tax Regimes and various tax slabs  
 - 10 guided questions (salary, investments, deductions, home loan, etc.)  
-- Instant recommendation of the optimal tax regime  
 - Explanations of key tax components:
   - Section 80C
   - Rebate u/s 87A
   - Tax slabs
   - Frequently Asked Questions (FAQs)
+- Instant recommendation of the optimal tax regime  
 
 ---
 
@@ -71,9 +71,6 @@ Based on the PRD, the application was built using an AI-assisted development app
 - Free to use
 - No login required
 - No data collection or tracking
-- Fast and lightweight UI
-- AI-assisted development workflow
-- Fully deployed application
 
 ---
 
